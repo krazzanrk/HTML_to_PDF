@@ -2,5 +2,4 @@
 .idea
 db.sqlite3
 __pycache__
-pdfkit_html_to_pdf/templates
-weasyprint_html_to_pdf/templates
+*.html
