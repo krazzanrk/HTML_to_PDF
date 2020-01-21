@@ -11,6 +11,10 @@ Using two Library
 * pip install pdfkit
 * sudo apt-get install wkhtmltopdf
 
+###### What should be done
+* use external css instead of bootstrap cdn
+* delete @media print {......} in css if bootstrap doesn't load
+
 References:
 
 1. https://pypi.org/project/pdfkit/
