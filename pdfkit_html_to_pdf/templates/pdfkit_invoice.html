@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Invoice for Everest Canvas</title>
+    {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"#}
+    {#          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">#}
+        <link href="http://127.0.0.1:8000/static/css/pdfkit.css" rel="stylesheet">
+
+
+
+</head>
+<body>
+<div class="card-body" id="nodeToRenderAsPDF">
+    <div class="row mb-4">
+        <div class="col-sm-6">
+            <img src="http://lipipoint.com/assets/images/logo/lipipoint.png"
+                 alt='lipipoint'
+                 heght=100
+                 width=100
+                 class="img-thumbnail"/>
+        </div>
+        <div class="col-sm-6 text-right">
+            <h1 class="mb-3 text-uppercase">
+                invoice
+                <p class="h6 text-muted font-weight-normal">Web Design & Development for Everest Canvas</p>
+            </h1>
+            <div class="mb-3">
+                <div>
+                    <strong>Lipipoint</strong>
+                </div>
+                <div class="font-weight-light">Adarsha,</div>
+                <div class="font-weight-light">Bhaktapur, Nepal</div>
+            </div>
+            <div>
+                <div class="font-weight-light">Phone: +977 - 01-66111111</div>
+                <div class="font-weight-light">Fax: 666 3333</div>
+                <div class="font-weight-light">Mobile: +977 - 98444444444</div>
+                <div class="font-weight-light">Email: info@lipipoint.com</div>
+                <div class="font-weight-light">www.lipipoint.com</div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="row mb-2">
+        <div class="col-sm-8">
+            <h6 class="mb-3">Bill To:</h6>
+            <div>
+                <strong>Everest Canvas Shop</strong>
+            </div>
+            <div class="font-weight-light">
+                John Doe
+            </div>
+            <div class="font-weight-light">
+                Baneshwor-99, kathmandu
+            </div>
+            <div>Email: everestcanvas@gmial.com</div>
+        </div>
+        <div class="col-sm-4 table-responsive-sm">
+            <table class="table table-clear table-borderless table-hover table-sm">
+                <tbody>
+                <tr>
+                    <td class="text-left text-sm-right">
+                        <strong>Invoice Number:</strong>
+                    </td>
+                    <td class="text-right text-sm-right">INV-001</td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right">
+                        <strong>P.O./S.O. Number:</strong>
+                    </td>
+                    <td class="text-right text-sm-right">
+                        16 Jan, 2020
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right">
+                        <strong>Invoice Date:</strong>
+                    </td>
+                    <td class="text-right text-sm-right">
+                        14 Jan, 2020
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right">
+                        <strong>Payment Due:</strong>
+                    </td>
+                    <td class="text-right text-sm-right">
+                        15 Feb, 2020
+                    </td>
+                </tr>
+                <tr class="table-active">
+                    <td class="text-left text-sm-right">
+                        <strong>Amount Due (NPR):</strong>
+                    </td>
+                    <td class="text-right text-sm-right">
+                        <strong>Rs. 50,000</strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="table-responsive-sm">
+        <table class="table table-borderless table-hover">
+            <thead class="thead-dark">
+            <tr>
+                <th class="text-center">S/N</th>
+                <th>Item</th>
+                <th>Description</th>
+                <th class="text-right">Unit</th>
+                <th class="text-right">Rate</th>
+                <th class="text-center">Qty</th>
+                <th class="text-center">Gross Amount</th>
+                <th class="text-center">Discount</th>
+                <th class="text-center">Tax</th>
+                <th class="text-center">Net Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item_line, index) in printData.item_lines" :key="index">
+                <td class="text-center">1</td>
+                <td class="text-center">website</td>
+                <td class="text-left strong">Website Design and Development (Content Management System)</td>
+                <td class="text-left">1</td>
+                <td class="text-left">80,000</td>
+                <td class="text-center">1</td>
+                <td class="text-right">40,000</td>
+                <td class="text-right">4000</td>
+                <td class="text-right">200</td>
+                <td class="text-right">40000</td>
+            </tr>
+            <tr v-for="(item_line, index) in printData.item_lines" :key="index">
+                <td class="text-center">1</td>
+                <td class="text-center">Hosting</td>
+                <td class="text-left strong">Hosting for first year (12000)</td>
+                <td class="text-left">1</td>
+                <td class="text-left">12,000</td>
+                <td class="text-center">1</td>
+                <td class="text-right">12,000</td>
+                <td class="text-right">10000</td>
+                <td class="text-right">10</td>
+                <td class="text-right">11000</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-5"></div>
+        <div class="col-lg-6 col-sm-5 ml-auto">
+            <table class="table table-clear table-borderless table-hover">
+                <tbody>
+                <tr>
+                    <td class="text-left text-sm-right py-1">
+                        <strong>Subtotal</strong>
+                    </td>
+                    <td class="text-right py-1">$50,000</td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right py-1">
+                        <strong>Adjustment Amount</strong>
+                    </td>
+                    <td class="text-right py-1">$43,000</td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right py-1">
+                        <strong>Discount </strong>
+                    </td>
+                    <td class="text-right py-1">
+                        $50,000
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right py-1">
+                        <strong>VAT (43,00)</strong>
+                    </td>
+                    <td class="text-right py-1">$43,00</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr class="my-0"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right">
+                        <strong>Total</strong>
+                    </td>
+                    <td class="text-right">
+                        <strong>$50,000</strong>
+                    </td>
+                </tr>
+                <tr v-for="(payment, index) in printData.payments" :key="index">
+                    <td class="text-left text-sm-right py-1">
+                        <strong> Payment on</strong>
+                        <b> 15 Aug, 2019</b>
+                        <strong>using</strong> <b>Cash</b
+                    >:
+                    </td>
+                    <td class="text-right py-1">50,000</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr class="my-0"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-left text-sm-right py-1">
+                        <strong>Amount Due(56000):</strong>
+                    </td>
+                    <td class="text-right py-1">
+                        <strong>$53000</strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h6>
+                <strong>Notes</strong>
+            </h6>
+            <div>We have given you heavy discount on
+                website design and development.
+                Please check some of the features of the
+                website as below.
+                <ul>
+                    <li>
+                        About Us page
+                    </li>
+                    <li>
+                        Contact Us page
+                    </li>
+                    <li>
+                        Galley Management
+                    </li>
+                    <li>
+                        Dynamic Banner available on all pages
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <h6><strong>Payment Information</strong></h6>
+            <div>We have given you heavy discount on
+                website design and development.
+                Please check some of the features of the
+                website as below.
+
+            </div>
+        </div>
+    </div>
+    <hr/>
+    <div class="col-sm-12 text-center">
+        <div class="text-muted">Thank you for your business. For futher enquiry - Please contact
+            lipipoint@gmail.com
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
